@@ -28,6 +28,7 @@ function playRound(playerSelection, computerSelection){
     }
 } 
 
+
 /*Pseudocode 
 Player inputs choice of : Rock paper scissors
 Call the function to get the computer's choice (done)
@@ -42,6 +43,15 @@ function game(){
     let playerSelection, computerSelection, result;
     let playerScore = 0;
     let computerScore = 0;
+
+    const rockButton = document.querySelector("#rock");
+    const paperButton = document.querySelector("#paper");
+    const scissorsButton = document.querySelector("#scissors");
+    
+    rockButton.addEventListener("click",e => console.log("Rock"));
+    paperButton.addEventListener("click",e => console.log("Paper"));
+    scissorsButton.addEventListener("click",e => console.log("Scissors"));
+
     for (let i = 0; i<5; i++){
         playerSelection = prompt("Choose : Rock, Paper or Scissors!");
         playerSelection = playerSelection.toLowerCase();
@@ -64,7 +74,7 @@ function game(){
         }
         console.log(`The current score is Player:${playerScore} Computer :${computerScore}`);
     }
-
+    
     //Compare results 
     if(playerScore > computerScore){
         console.log("Player wins!");
@@ -77,3 +87,4 @@ function game(){
 }
 
 game()
+
