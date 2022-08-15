@@ -67,7 +67,14 @@ function game(){
         document.getElementById("sentence2").textContent = `The current score is Player : ${playerScore} Computer : ${computerScore}`; 
     }
     if(gameRound == 5){
-        document.getElementById("sentence3").textContent = `Game over! Refresh browser to play again!`
+        if(playerScore>computerScore){
+            document.getElementById("sentence3").textContent = `You win! Refresh browser to play again!`
+        }else if(computerScore>playerScore){
+            document.getElementById("sentence3").textContent = `You Lose! Refresh browser to play again!`
+        }else if(computerScore == playerScore){
+            document.getElementById("sentence3").textContent = `Draw! Refresh browser to play again!`
+        }
+        
     }
 
 }
