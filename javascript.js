@@ -1,5 +1,9 @@
 let playerSelection;
 let computerSelection;
+let gameRound = 0;
+let computerScore = 0;
+let playerScore = 0;
+let result;
 
 //Getting the whole element
 const rockButton = document.querySelector("#rock");
@@ -8,16 +12,22 @@ const scissorsButton = document.querySelector("#scissors");
 
 //Adding addEventListener to the whole element, in this case upon clicking
 rockButton.addEventListener("click",function(e){
-    let result = playRound(e.target.id);
-    console.log(result);
+    result = playRound(e.target.id);
+    playerSelection = e.target.id;
+    gameRound++;
+    game();
 });
 paperButton.addEventListener("click",function(e){
-    let result = playRound(e.target.id);
-    console.log(result);
+    result = playRound(e.target.id);
+    playerSelection = e.target.id;
+    gameRound++;
+    game();
 });
 scissorsButton.addEventListener("click",function(e){
-    let result = playRound(e.target.id);
-    console.log(result);
+    result = playRound(e.target.id);
+    playerSelection = e.target.id;
+    gameRound++;
+    game();
 });
 function getComputerChoice(){
     const myComputerChoice= ["rock","paper","scissors"];
@@ -46,37 +56,21 @@ function playRound(playerSelection){
     }
 
 } 
-/*function game(){
-
-
-    
-    for (let i = 0; i<5; i++){
-        playerSelection = prompt("Choose : Rock, Paper or Scissors!");
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = getComputerChoice();
-        
-
-        //Print out player's choice and comp's choice 
-        console.log(`Player's choice is ${playerSelection} and Computer's choice is ${computerSelection}.`);
-
-       result = playRound(playerSelection, computerSelection);
-       if(result === true){
+function game(){
+    if(gameRound <6){
+        document.getElementById("sentence1").textContent =`Player selection is ${playerSelection}, and Computer selection is ${computerSelection}`
+        if(result === true){
             playerScore +=1;
         }else if(result === false){
             computerScore +=1;
         }
-        console.log(`The current score is Player:${playerScore} Computer :${computerScore}`);
+        document.getElementById("sentence2").textContent = `The current score is Player : ${playerScore} Computer : ${computerScore}`; 
     }
-
-    //Compare results 
-    if(playerScore > computerScore){
-        console.log("Player wins!");
-    }else if(computerScore > playerScore){
-        console.log("Computer wins!");
-    }else{
-        console.log("Its a draw!")
+    if(gameRound == 5){
+        document.getElementById("sentence3").textContent = `Game over! Refresh browser to play again!`
     }
 
 }
 
-game()*/
+
+
